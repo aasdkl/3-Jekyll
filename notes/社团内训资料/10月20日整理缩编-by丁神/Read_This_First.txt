@@ -1,0 +1,25 @@
+先打开main.c
+此外还可以阅读一点函数的相关知识，把Draft里面的左移改成一个moveleft函数
+
+关于gcc：
+	gcc FILE_NAME 得到的文件均为a.out/a.exe，指定新文件名称的方法为
+    gcc FILE_NAME -o NEW_NAME 生成文件名为NEW_NAME
+	gcc FILE_NAME -S 会得到解读C语言生成的汇编代码，可以感受一下地址是怎么分配的
+	gcc FILE_NAME -O2/-O3 类似路飞，gcc也具有二档/三档能力，使用-O2可以加强编译器的优化
+能力，使生成的代码效率更高，O3则比O2的优化更进一步。但gcc的能力有限，对某些代码作过度优化可
+能改变程序员写代码的本意。因此也有
+	gcc FILE_NAME -O0 来完全模仿原代码的行为。
+	gcc FILE_NAME -g 会在生成的代码中加入一下信息，提供给gdb使用
+
+关于gdb
+	gdb可以调试程序，输入gdb FILE_NAME(FILE_NAME为可执行文件)
+	run(或缩写r) 将执行程序
+	display X 将显示变量X当前的情况
+	break(或缩写b) NUMBER 会在第NUMBER行加一个断点，run执行到一个断点会暂停下来，此时
+display的所有信息会显示出来。
+	break FUNC-NAME 会在FUNC-NAME这个函数被调用时中断。
+	利用以上指令，可以查看程序运行过程中各个数值的变化，了解那一部分的变化和自己的预期不服，
+方便确定出错位置。
+	当断点过多时，使用
+	delete display NUMBER 可以删除标号为NUMBER的display使其信息不再显示
+	quit退出gdb

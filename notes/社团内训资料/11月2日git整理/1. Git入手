@@ -1,0 +1,78 @@
+1、Git的安装
+
+    这里是官网的说明：https://help.github.com/articles/set-up-git
+
+    不过我还是来一步步说明吧……以Ubuntu为例：
+    首先是安装，在终端（Ctrl+Alt+t）输入
+    sudo apt-get install git-core
+
+    安装好后可以用以下三个命令查看是否安装成功：
+    whereis git
+    git --version
+    git --help
+
+    之后，我们需要配置个人信息（用户名和电子邮件地址）。因为每次Git提交时都会引用这两条信息，说明是谁提交了更新。
+    git config --global user.name "aasdkl"
+    git config --global user.email aasdkl@126.com
+
+    又因为配置文件存放在个人主目录下的.gitconfig文件里
+    所以也可以通过以下命令直接在文件里修改
+    gedit ~/.gitconfig
+    
+    然后可以通过以下命令验证：
+    git config --list 
+
+    到这个时候git本地已经可以工作了。 
+    
+
+
+2、本地工作
+
+    其实在本地工作的操作就是核心内容。
+    首先，我们可以用以下命令在当前目录下初始化一个仓库【也就是版本库】。
+    git init
+
+    然后在相应目录下会生成一个.git文件夹。由于以点号开头的文件在Ubuntu下都是隐藏的，所以我们需要Ctrl+H显示隐藏文件后才能看到。【所以理论上是可以用这种命名格式来隐藏文件的】
+
+    然后我们可以添加文件到仓库里，将修改存入INDEX之中。【好像有：缓存区/快照/索引这三种称呼】
+    git add 文件名
+    git add *.cpp #加入文件夹下所有修改了的cpp文件
+    git add . #加入文件夹下所有修改的文件
+
+    这个时候文件还没有真正入库，我们还需要使用commit将INDEX中的内容提交到仓库中
+    git commit -m "msg"
+
+    这里也可以将git add与git commit用一个指令完成
+    git commit -a -m "msg"
+
+    我们还有以下查看指令
+    git diff	#查看文件最近一次改变的內容
+    git show 	#可以看某次的变更信息
+    git log	#查看历史更新信息
+    git status	#目前仓库的状态（比如与当前目录下的文件是否同步啦啥的）
+
+    最后是文件检出。可以不输入文件名查看不同步的文件状态。M代表被修改，D代表被删除
+    git checkout 文件名
+
+    那暂时就先说这些。分支我实在没接触过所以就不说了。有兴趣的可以试试。(以下摘自网络)
+
+    # 另外版本控制系統的branch功能也很有意思，若同时修改bug，又要加入新功能，可以fork出一个branch：一个专门修bug，一个专门加入新功能，等到稳定后再merge合并
+    git branch bug_fix		# 建立branch，名为bug_fix
+    git checkout bug_fix	# 切换到bug_fix
+    git checkout master		#切换到主要的repo 【master就是git中主要代码的那一条主干】
+    git merge bug_fix		#把bug_fix这个branch和现在的branch合并
+
+
+
+3、远端服务器
+
+    其实建立远端服务器连接就是抄抄命令【喂！
+    首先在GitHub上注册一个帐号，具体流程跟着提示走就好……然后新建一个仓库。【都是跟着提示做就好的】
+    建立好仓库后我们可以将自己本地的git连接到服务器端。
+    git remote add origin 地址
+    git push -u origin master
+    也可以从服务器端获取代码。
+    git pull
+    
+
+    【由于本人C++跪了所以写不下去了就这么着吧！
