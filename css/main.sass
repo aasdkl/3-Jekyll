@@ -6,25 +6,23 @@
 
 // # Breakpoints
 
-$breakpoint-hide-sidebar: 1280px
+$breakpoint-hide-sidebar: 1300px
 $breakpoint-mobile: 767px
 
 
 // # Font
-
-$font: 'Open Sans', 'Hiragino Sans GB', sans-serif
-
+// refer to the theme https://github.com/Huxpro/huxpro.github.io/blob/master/less/mixins.less
+$font: -apple-system, "Helvetica Neue", "Open Sans", "Droid Sans Mono", "Arial", "PingFang SC", "Hiragino Sans GB", "STHeiti", "Microsoft YaHei", "Microsoft JhengHei", "Source Han Sans SC", "WenQuanYi Micro Hei", SimSun, sans-serif
 
 // # Sidebar Background Gradient
 
-$gradient-start: #C2E987
-$gradient-end:   #309E85
+$gradient-start: #BCC1C4 
+$gradient-end:   #283444 
 
 $sidebar-bg: linear-gradient(136deg, $gradient-start, $gradient-end)
 
-
 // # Sidebar Left
-$sidebar-left-width: 170px
+$sidebar-left-width: 180px
 
 // Avatar
 $avatar-size: 128px
@@ -45,14 +43,14 @@ $tag-height: 50px
 $tag-font-size: 17px
 
 $tag-color: rgba(255, 255, 255, .7)
-$tag-hover-color: rgba(255, 255, 255, .85)
+$tag-hover-color: rgba(255, 255, 255, .9)
 $tag-active-color: $gradient-end
 
 $tag-border-color: rgba(255, 255, 255, .5)
 
 
 // # Sidebar Right
-$sidebar-right-width: 380px
+$sidebar-right-width: 300px
 
 // Search
 $search-box-height: 64px
@@ -156,6 +154,7 @@ $time-function: cubic-bezier(0.770, 0.000, 0.175, 1.000)
 
 // @import
 
+@import 'font'
 @import '1-animation'
 @import '2-icon'
 @import '3-base'
