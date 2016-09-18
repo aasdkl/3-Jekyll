@@ -22,8 +22,8 @@ github: 'aasdkl'
 
 useGoogle: false
 
-# Google Analytics[need to set useGoogle: true]
-# google_analytics: tracking_ID
+# Google Analytics
+google_analytics: tracking_ID
 
 # Build settings
 markdown: kramdown
