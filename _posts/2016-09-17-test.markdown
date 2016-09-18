@@ -2,7 +2,7 @@
 layout      : post
 title       : "test"
 date        : 2016-09-17
-categories  : test Update
-tags        : test Update
+categories  : Test Update
+tags        : Test Update
 ---
 test page
