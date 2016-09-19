@@ -4,8 +4,7 @@ email: hsuehchiahao@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
   A blog for aasdkl.
 baseurl: "" # the subpath of your site, e.g. /blog/
-#url: "http://yourdomain.com" # the base hostname & protocol for your site
-
+url: "aasdkl.github.io"
 
 # Sidebar filter
 # Choose 'tag' or 'category' as filter in sidebar.
@@ -19,7 +18,6 @@ github: 'aasdkl'
 
 # Comment
 # disqus_shortname: discussion_shortname
-duoshuo_shortname: 'aasdkl'
 
 useGoogle: false
 
