@@ -4,7 +4,7 @@ email: hsuehchiahao@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
   A blog for aasdkl.
 baseurl: "" # the subpath of your site, e.g. /blog/
-url: "aasdkl.github.io"
+url: "https://aasdkl.github.io"
 
 # Sidebar filter
 # Choose 'tag' or 'category' as filter in sidebar.
