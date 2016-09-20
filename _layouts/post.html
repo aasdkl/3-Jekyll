@@ -15,7 +15,6 @@ layout: default
 
 <div class="post-share">
   <div class="container">
-      <!--!! 外链修复--> 
       <a href="https://www.evernote.com/clip.action?url={{ page.url | prepend: site.baseurl | prepend: site.url }}&title={{ page.title }}" target="_blank" class="post-share-icon evernote"></a>
     <a href="http://service.weibo.com/share/share.php?url={{ page.url | prepend: site.baseurl | prepend: site.url }}&title={{ page.title }}" target="_blank" class="post-share-icon weibo"></a>
   </div>
@@ -29,9 +28,19 @@ layout: default
 </div>
 {% endif %}
 
-
 {% if site.duoshuo_shortname %}
 <!-- 多说评论框 start -->
-<div class="ds-thread" data-thread-key={{ page.url }} data-title={{ page.title }} data-url={{ site.url }}></div>
+<div class="comment container">
+	<div class="ds-thread" data-thread-key={{ page.url }} data-title={{ page.title }} data-url={{ site.url }}></div>
+</div>
+<script type="text/javascript">
+	var duoshuoQuery = {short_name: '{{ site.duoshuo_shortname }}'};
+	(function() {
+		var ds = document.createElement('script'); ds.type = 'text/javascript'; ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0]  || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+</script>
 <!-- 多说评论框 end -->
 {% endif %}
