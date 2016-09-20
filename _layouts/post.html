@@ -32,3 +32,11 @@ layout: default
 	http://www.uyan.cc/demo
 	http://changyan.kuaizhan.com/
 -->
+
+{% if site.youyan_id %}
+<div id="uyan_frame"></div>
+<script src="http://v2.uyuan.cc/code/uyan.js?uid={{ site.youyan_id }}" type="text/javascript" charset="utf-8"></script>
+{% endif %}
+
+
+
