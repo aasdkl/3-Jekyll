@@ -26,7 +26,6 @@ $(function() {
     {% endif %}
 
     // your scripts
-    
   };
   afterPjax();
 
