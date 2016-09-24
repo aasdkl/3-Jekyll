@@ -34,7 +34,7 @@ h1 + h2, h2 + h3, h3 + h4, h4 + h5, h5 + h6
   text-shadow: 1px 1px 0 #fff
 
   &-title
-    margin: 0 0 $post-paragraph-spacing * .75
+    margin: .5em 0 $post-paragraph-spacing * .75
     font-size: 1.8em
     color: $post-title-color
   &-meta
@@ -57,11 +57,17 @@ h1 + h2, h2 + h3, h3 + h4, h4 + h5, h5 + h6
 
   a
     word-break: break-all
-    text-decoration: none
     color: $post-link-color
     outline: none
+    padding-left:  $post-link-padding
+    padding-right: $post-link-padding
     &:hover
       color: $post-link-hover-color
+    &:visited
+      color: $post-link-visited-color
+
+  br
+    line-height: $post-font-size * 3
 
   p, ul, ol
     margin-top: 0
@@ -97,6 +103,7 @@ h1 + h2, h2 + h3, h3 + h4, h4 + h5, h5 + h6
   code
     font-family: $post-code-font
     font-size: .9em
+    font-weight: bold
 
   *:not(pre) > code
     padding: 0 .25em

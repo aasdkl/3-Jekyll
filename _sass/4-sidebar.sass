@@ -163,6 +163,7 @@
   padding: 0 15px 0 32px
   font-size: $toc-font-size
   line-height: $toc-line-height
+  font-weight: bold
   white-space: nowrap
   text-decoration: none
   text-overflow: ellipsis
@@ -183,3 +184,5 @@
     color: $toc-bullet-read
   &:hover:before
     animation: joggle .6s linear
+  &.active
+    float: right
