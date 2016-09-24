@@ -1,8 +1,0 @@
----
-layout      : post
-title       : "test"
-date        : 2016-09-17
-categories  : Test Update
-tags        : Test Update
----
-test page
