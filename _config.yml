@@ -10,15 +10,13 @@ url: "https://aasdkl.github.io" # the base hostname & protocol for your site
 # Choose 'tag' or 'category' as filter in sidebar.
 filter: 'tag'
 
-
 # Social account
 weibo:  'tonyhsueh'
 github: 'aasdkl'
 
-
 # Comment
 # disqus_shortname: discussion_shortname
-# duoshuo_shortname: 'aasdkl' // some bug
+duoshuo_shortname: 'aasdkl' # some bug
 
 useGoogle: false
 

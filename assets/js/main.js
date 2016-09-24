@@ -24,8 +24,21 @@ $(function() {
       (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
     {% endif %}
+    
+    {% if site.duoshuo_shortname %}
+    (function() {
+    	var t  = document.createElement('script');
+    	t.innerText="var duoshuoQuery = {short_name: '{{ site.duoshuo_shortname }}'}"
+			var ds = document.createElement('script'); ds.type = 'text/javascript'; ds.async = true;
+			ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+			ds.charset = 'UTF-8';
+			(document.getElementsByTagName('head')[0]  || document.getElementsByTagName('body')[0]).appendChild(t).appendChild(ds);
+    })();
+    {% endif %}
 
     // your scripts
+//  $(this).addClass('active').siblings().removeClass('active');
+
   };
   afterPjax();
 
@@ -50,9 +63,25 @@ $(function() {
       NProgress.done();
       main.scrollTop(0).addClass('fadeIn');
       menu.add(sidebar).removeClass('open');
-      {% if site.useGoogle && site.google_analytics %}
-      ga('set', 'location', window.location.href);
-      ga('send', 'pageview');
+      {% if site.useGoogle and site.google_analytics %}
+	      ga('set', 'location', window.location.href);
+	      ga('send', 'pageview');
+      {% endif %}
+      
+      //load duoshuo here
+      {% if site.duoshuo_shortname %}
+      (function() {
+//				var duoshuoQuery = {short_name: '{{ site.duoshuo_shortname }}'};
+        var dus=$(".ds-thread");
+        if($(dus).length==1){
+	        var el = document.createElement('div');
+	        el.setAttribute('data-thread-key',$(dus).attr("data-thread-key"));//必选参数
+	        el.setAttribute('data-url',$(dus).attr("data-url"));
+	        el.setAttribute('data-title',$(dus).attr("data-title"));
+	        DUOSHUO.EmbedThread(el);
+	        $(dus).html(el);
+    		}
+      })();
       {% endif %}
     }
   });
