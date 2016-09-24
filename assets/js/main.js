@@ -6,9 +6,8 @@ $(function() {
   var toc     = $('.toc-link'),
       sidebar = $('#sidebar'),
       main    = $('#main'),
-      menu    = $('#menu'),
-      x1, y1;
-
+      menu    = $('#menu');
+	
   // run this function after pjax load.
   var afterPjax = function() {
     // open links in new tab.
@@ -37,11 +36,20 @@ $(function() {
     {% endif %}
 
     // your scripts
-//  $(this).addClass('active').siblings().removeClass('active');
 
   };
   afterPjax();
 
+  var beforePjax = function(e) {
+  	$('.toc-link').removeClass('active');
+  	if (!e){
+  		e=$('.toc-link[href$="'+window.location.pathname+'"')
+  	} else {
+  		e=e.target;
+  	}
+    $(e).addClass('active');
+  };
+  beforePjax();
 
   // NProgress
   NProgress.configure({ showSpinner: false });
@@ -53,16 +61,21 @@ $(function() {
     timeout: 3000
   });
 
+	
+  // TODO 刷新之后tags会被改变！点击头像应该回去全部文章
   $(document).on({
-    'pjax:click': function() {
+    'pjax:click': function(e) {
       NProgress.start();
       main.removeClass('fadeIn');
+      // add target
+      beforePjax(e);
     },
     'pjax:end': function() {
       afterPjax();
       NProgress.done();
       main.scrollTop(0).addClass('fadeIn');
       menu.add(sidebar).removeClass('open');
+      
       {% if site.useGoogle and site.google_analytics %}
 	      ga('set', 'location', window.location.href);
 	      ga('send', 'pageview');
@@ -71,7 +84,6 @@ $(function() {
       //load duoshuo here
       {% if site.duoshuo_shortname %}
       (function() {
-//				var duoshuoQuery = {short_name: '{{ site.duoshuo_shortname }}'};
         var dus=$(".ds-thread");
         if($(dus).length==1){
 	        var el = document.createElement('div');

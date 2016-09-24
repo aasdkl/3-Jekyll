@@ -159,11 +159,10 @@
   position: relative
   float: left
   clear: both
-  margin: 5px 0
+  margin: 5px auto
   padding: 0 15px 0 32px
   font-size: $toc-font-size
   line-height: $toc-line-height
-  font-weight: bold
   white-space: nowrap
   text-decoration: none
   text-overflow: ellipsis
@@ -182,7 +181,15 @@
     transition: transform .15s linear
   &:visited:before
     color: $toc-bullet-read
-  &:hover:before
-    animation: joggle .6s linear
+  &:hover
+    color: $toc-hover-color
+    &:before
+      color: $toc-hover-color
+      animation: joggle .6s linear
   &.active
-    float: right
+    font-weight: bold
+    color: $toc-highlight-color
+    transition: color .15s linear
+    &:before
+      color: $toc-highlight-color
+      transition: color .15s linear
