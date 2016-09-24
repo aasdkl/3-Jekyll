@@ -22,12 +22,12 @@ def get_stdin(msg)
     STDIN.gets.chomp
 end
 
-# post, rake post title="xxx" [tag="xxx xxx"]
+# post, rake post title="xxx" [cat="xxx xxx"]
 desc "Begin a new post in #{CONFIG['posts']}"
 task :post do
     abort("rake aborted:'#{CONFIG['posts']}' directory not found.") unless FileTest.directory?(CONFIG['posts'])
     title    = ENV["title"] || "new-post"
-    tag      = ENV["tags"]  || ENV["tag"]      || ""
+    cat      = ENV["cat"]   || ENV["catego"]  || ENV["category"] || ENV["categories"] || ""
     slug     = title.downcase.strip.gsub(' ','-').gsub(/[^\w-]/,'')
     begin
         date = (ENV['date'] ? Time.parse(ENV['date']): Time.now).strftime('%Y-%m-%d')
@@ -45,11 +45,12 @@ task :post do
     open(filename,'w') do |post|
         post.puts "---"
         post.puts "layout      : post"        
-        post.puts "title       : \"#{title.gsub(/-/,'')}\""
+        post.puts "title       : "
         post.puts "date        : #{date}"
-        post.puts "categories  : #{tag}" #same as tags
-        post.puts "tags        : #{tag}" 
+        post.puts "categories  : #{cat}" #in url
+        post.puts "tags        : " 
         post.puts "---"
+        post.puts "begin"
     end
 end
 
